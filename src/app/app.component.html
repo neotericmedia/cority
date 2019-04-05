@@ -1,20 +1,39 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="widget-container">
 
+  <div class="widget-header">
+    <div class="widget-header-txt">
+      <h3>List Name <span class="new-txt">1</span></h3>
+      <span class="total-txt">Total 3</span>
+    </div>
+    <div class="widget-header-actions">
+      <span class="plus-icon" (click)="collapse()">+</span>
+      <span class="down-icon">V</span>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <div *ngIf="hidden" class="list-section">
+    <div class="list-item" *ngFor="let d of data">
+      <div class="list-item-left">{{ d.icon }}</div>
+      <div class="list-item-center">
+        <span class="list-item-txt">
+            {{ d.text }}
+        </span>
+        <span class="list-item-date">
+          Wed June 13th 2019
+        </span>
+      </div>
+      <div class="list-item-actions" *ngIf="!hidden">actions</div>
+      <div class="list-item-actions-open" *ngIf="hidden">
+        <div (click)="downloadListItem()">Download</div>
+        <div (click)="deleteListItem()">Delete</div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div class="widget-footer">
+    <a href="#">Load More</a>
+  </div>
+
+</div>
